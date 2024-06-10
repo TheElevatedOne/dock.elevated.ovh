@@ -3,7 +3,8 @@
 - First wrote it on [rlim](https://rlim.com), but github has is easier with markdown and I can edit it in the future so, here we are
 ---
 ## This is a guide on how to setup a server for AI (That I use)
-
+- Navigation
+  - [Preparation](**preparation**) 
 - General Information
   - Hosting
     - Finding a good hosting for AI can be quite an issue generally. You can have something like GCS (Google Cloud Services) with many features, but it will be expensive. Or you can go for something like runpod which is mostly specified for AI.
