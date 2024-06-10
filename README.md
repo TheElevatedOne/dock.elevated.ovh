@@ -126,5 +126,4 @@ You must move to the extensions directory and clone the extensions yourself
            git clone https://github.com/adieyal/sd-dynamic-prompts.git
            ```            
    3. #### ComfyUI
-   4. 
-   5. #### Kohya_SS
+   4. #### Kohya_SS
