@@ -177,6 +177,7 @@ You must move to the extensions directory and clone the extensions yourself
             echo 'export PATH=/usr/local/cuda/lib64:$PATH' >> ~/.bashrc
             echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64' >> ~/.bashrc
             echo 'export CUDA_PATH=/usr/local/cuda' >> ~/.bashrc
+            exex bash # Reloading the console without restarting the system
             ```
       4. Install Kohya_SS
          - ```bash
@@ -189,3 +190,15 @@ You must move to the extensions directory and clone the extensions yourself
             ./start.sh
             ```
    5. #### Ease of Use for UIs
+      - Create aliases for running the different UIs
+         - As you have seen before, the `export` command does export to a path (environment variables on Windows)
+         - We are now gonna use the `alias` command (This is the reason for the SCRIPT_DIR echo, without it this wouldn't work)
+         - ```bash
+            echo 'alias webui=/home/user/stable-diffusion-webui/start.sh' >> ~/.bashrc # Example for A1111
+            echo 'alias forge=/home/user/stable-diffusion-webui-forge/start.sh' >> ~/.bashrc # Example for Forge
+            echo 'alias comfyui=/home/user/ComfyUI/start.sh' >> ~/.bashrc # Example for ComfyUI
+            echo 'alias kohya=/home/user/kohya_ss/start.sh' >> ~/.bashrc # Example for Kohya_SS
+            exec bash # Reload console/bash config
+            ```
+         - You can change the alias names to your liking (alias name are this `alias <name>=/)
+         - If you set what you want, now you can just run ex. `webui` as a command to start the UI
