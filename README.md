@@ -7,6 +7,10 @@
   - [Preparation](#preparation)
   - [Server Preparation](#server-preparation)
   - [UI Preparation](#ui-preparation)
+    - [Commands used (For Non-Linux Users)](#some-commands-we-will-be-using)
+    - [A1111 & Forge](#a1111-&-forge)
+    - [ComfyUI](#comfyui)
+    - [Kohya_SS](#kohya_ss)
 - General Information
   - Hosting
     - Finding a good hosting for AI can be quite an issue generally. You can have something like GCS (Google Cloud Services) with many features, but it will be expensive. Or you can go for something like runpod which is mostly specified for AI.
@@ -95,13 +99,13 @@
       4. After this you can connect and browse/upload/download files from your server easily
 3. ### **UI Preparation**
    **(Do NOT copy the commands whole, try to write them yourself alongside this guide, I will prompt you when you can copy fully)**
-   1. Some commands we will be using
+   1. #### Some commands we will be using
       1. `cd ~` - change directory to home, `cd ..` - change directory to level above, `cd <dir>` - change directory to what you specify
       2. `git clone` - clone a github repository, `git pull` - update a cloned repository
       3. `echo "something"` - print text to console, `echo "something" >> <file>` - append/add text to a file
       4. You can use the tab key to autocomplete paths in the console, ex. `cd stab + <TAB> -> cd stable-diffusion-webui` 
       5. `chmod +x <file>` - change file's mode/permissions, `+x` allow file to be executed
-   2. A1111 & Forge
+   2. #### A1111 & Forge
       1. ```bash
          cd ~
          git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git # for A1111 WebUI
@@ -114,5 +118,5 @@
          ./start.sh
          ```
       2. 
-   3. ComfyUI
-   4. Kohya_SS
+   3. #### ComfyUI
+   4. #### Kohya_SS
