@@ -109,7 +109,7 @@
       1. ```bash
          cd ~
          git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git # for A1111 WebUI
-         git clone https://github.com/lllyasviel/stable-diffusion-webui-forge # for Forge
+         git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git # for Forge
          cd stable-diffusion-webui # or cd stable-diffusion-webui-forge
          # You can copy the echo command, it is just for convenience sake
          echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
@@ -118,6 +118,12 @@
          chmod +x start.sh
          ./start.sh
          ```
-      2. 
+      2. Because of the `--listen` argument (which we need) you cannot install extensions inside the UI,__
+You must move to the extensions directory and clone the extensions yourself
+         - example: ```bash
+           cd extensions
+           git clone https://github.com/adieyal/sd-dynamic-prompts.git
+           ```            
    3. #### ComfyUI
-   4. #### Kohya_SS
+   4. 
+   5. #### Kohya_SS
