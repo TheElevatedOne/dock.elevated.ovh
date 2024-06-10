@@ -113,8 +113,8 @@
          cd stable-diffusion-webui # or cd stable-diffusion-webui-forge
          # You can copy the echo command, it is just for convenience sake
          echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
-         echo "$SCRIPT_DIR/webui.sh --xformers --listen --port 7860" >> ./start.sh # \
-         You can specify the port you want | If you are using forge and have 16GB+ VRAM you can add "--cuda-malloc --cuda-stream --pin-shared-memory" arguments, there may be a speedup
+         echo "$SCRIPT_DIR/webui.sh --xformers --listen --port 7860" >> ./start.sh # You can specify the port you want
+         #If you are using forge and have 16GB+ VRAM you can add "--cuda-malloc --cuda-stream --pin-shared-memory" arguments, there may be a speedup
          chmod +x start.sh
          ./start.sh
          ```
