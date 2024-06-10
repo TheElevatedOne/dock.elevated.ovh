@@ -15,7 +15,7 @@
 
 ### Okay that's it for the introduction, let's get into it.
 
-1. **Preparation**
+1. ### **Preparation**
    1. Create an Account on [Tensordock](https://marketplace.tensordock.com) and create your Organization (It is nothing paid, It's just for users who want their account to be used by multiple people)
    2. Go to "Your Organization" section and deposit some funds, even the minimum 5$ is enough for start.
    3. Now go into your console (On Windows use [Terminal](https://apps.microsoft.com/detail/9n0dx20hk701) or CMD)
