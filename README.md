@@ -47,7 +47,7 @@
          1. Open the key file with `.pub` extension in a text editor and Ctrl+A copy everything inside (on linux just use `cat` and copy the output \[.pub files are the public files which are supposed to be on a server, the file with no extension is a private file which should be on your computer. Do NOT share the private key file.\]
          2. Click on the text show in the image and a popup will emerge, in there you will enter your public key, press update and close the popup 
 
-            ![](https://i.rlim.com/2024-05-29/eSYE9USXvV-Screenshot_20240530_002719.webp)
+            ![](images/tensordock-ssh-key.webp)
       6. Type in the name of your server
       7. Specify a port you want to open
          1. The 5 digit number is the outside port (you will be typing these in your browser later), The 4 digit and less are the internal ports (7860 is used by SD Webui as a port).
