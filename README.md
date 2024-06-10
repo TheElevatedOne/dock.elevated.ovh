@@ -118,7 +118,7 @@
          chmod +x start.sh
          ./start.sh
          ```
-      2. Because of the `--listen` argument (which we need) you cannot install extensions inside the UI,__
+      2. Because of the `--listen` argument (which we need) you cannot install extensions inside the UI, </br>
 You must move to the extensions directory and clone the extensions yourself
          - example:
            ```bash
