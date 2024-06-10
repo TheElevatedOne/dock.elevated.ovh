@@ -11,6 +11,7 @@
     - [A1111 & Forge](#a1111--forge)
     - [ComfyUI](#comfyui)
     - [Kohya_SS](#kohya_ss)
+    - [Ease of Use for UIs](#ease-of-use-for-uis)
 - General Information
   - Hosting
     - Finding a good hosting for AI can be quite an issue generally. You can have something like GCS (Google Cloud Services) with many features, but it will be expensive. Or you can go for something like runpod which is mostly specified for AI.
@@ -187,4 +188,4 @@ You must move to the extensions directory and clone the extensions yourself
             chmod +x start.sh
             ./start.sh
             ```
-   5. #### Some ease of use stuff
+   5. #### Ease of Use for UIs
