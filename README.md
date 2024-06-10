@@ -1,4 +1,4 @@
-# Tensordock Server for AI Generation/Training
+# Tensordock Server for AI Generation/Training (WIP)
 - Tutorial on how to setup a server on Tensordock for AI Image generation or Model training
 - First wrote it on [rlim](https://rlim.com), but github has is easier with markdown and I can edit it in the future so, here we are
 ---
