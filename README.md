@@ -93,7 +93,8 @@
          5. User is just "user"
          6. And key file is just your private ssh key file
       4. After this you can connect and browse/upload/download files from your server easily
-3. ### **UI Preparation** (Do NOT copy the commands whole, try to write them yourself alongside this guide, I will prompt you when you can copy fully)
+3. ### **UI Preparation**
+   **(Do NOT copy the commands whole, try to write them yourself alongside this guide, I will prompt you when you can copy fully)**
    1. Some commands we will be using
       1. `cd ~` - change directory to home, `cd ..` - change directory to level above, `cd <dir>` - change directory to what you specify
       2. `git clone` - clone a github repository, `git pull` - update a cloned repository
