@@ -4,7 +4,9 @@
 ---
 ## This is a guide on how to setup a server for AI (That I use)
 - Navigation
-  - [Preparation](#preparation) 
+  - [Preparation](#preparation)
+  - [Server Preparation](#server-preparation)
+  - [UI Preparation](#ui-preparation)
 - General Information
   - Hosting
     - Finding a good hosting for AI can be quite an issue generally. You can have something like GCS (Google Cloud Services) with many features, but it will be expensive. Or you can go for something like runpod which is mostly specified for AI.
@@ -47,7 +49,7 @@
          1. The 5 digit number is the outside port (you will be typing these in your browser later), The 4 digit and less are the internal ports (7860 is used by SD Webui as a port).
          2. Open at least one more port of your choosing, if you choose random number we will fix that later.
       8. Click **Deploy Server,** and you're done. You've successfully deployed an Ubuntu server.
-2. **Server Preparation**
+2. ### **Server Preparation**
    1. Prepare a file from which you can run the server easily.
       1. The file will look like this: `ssh -i <path-to-the-file> -p <ssh-port> user@<server-ip>`
          1. The path to the file will be `~/ssh/<filename>` on linux and `C:\Users\<username>\.ssh\<filename>` on Windows (Please use the private key for this
@@ -91,7 +93,7 @@
          5. User is just "user"
          6. And key file is just your private ssh key file
       4. After this you can connect and browse/upload/download files from your server easily
-3. UI Preparation (Do NOT copy the commands whole, try to write them yourself alongside this guide, I will prompt you when you can copy fully)
+3. ### **UI Preparation** (Do NOT copy the commands whole, try to write them yourself alongside this guide, I will prompt you when you can copy fully)
    1. Some commands we will be using
       1. `cd ~` - change directory to home, `cd ..` - change directory to level above, `cd <dir>` - change directory to what you specify
       2. `git clone` - clone a github repository, `git pull` - update a cloned repository
