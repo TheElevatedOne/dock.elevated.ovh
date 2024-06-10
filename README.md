@@ -105,6 +105,7 @@
       3. `echo "something"` - print text to console, `echo "something" >> <file>` - append/add text to a file
       4. You can use the tab key to autocomplete paths in the console, ex. `cd stab + <TAB> -> cd stable-diffusion-webui` 
       5. `chmod +x <file>` - change file's mode/permissions, `+x` allow file to be executed
+      6. You can stop a command you ran by pressing `CTRL+C`
    2. #### A1111 & Forge
       1. ```bash
          cd ~
@@ -176,13 +177,14 @@ You must move to the extensions directory and clone the extensions yourself
             echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64' >> ~/.bashrc
             echo 'export CUDA_PATH=/usr/local/cuda' >> ~/.bashrc
             ```
-      4. ```bash
-         cd ~
-         git clone https://github.com/bmaltais/kohya_ss.git
-         ./setup,sh
-         echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
-         echo '$SCRIPT_DIR/gui.sh --listen 0.0.0.0 --server_port 7860 --headless' >> ./start.sh # The server port can be changed to what you need
-         chmod +x start.sh
-         ./start.sh
-         ```
+      4. Install Kohya_SS
+         - ```bash
+            cd ~
+            git clone https://github.com/bmaltais/kohya_ss.git
+            ./setup,sh
+            echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
+            echo '$SCRIPT_DIR/gui.sh --listen 0.0.0.0 --server_port 7860 --headless' >> ./start.sh # The server port can be changed to what you need
+            chmod +x start.sh
+            ./start.sh
+            ```
    5. #### Some ease of use stuff
