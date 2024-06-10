@@ -124,6 +124,65 @@ You must move to the extensions directory and clone the extensions yourself
            ```bash
            cd extensions
            git clone https://github.com/adieyal/sd-dynamic-prompts.git
-           ```            
+           ```
    3. #### ComfyUI
+      1. ```bash
+         # This can be fully copied
+         cd ~
+         git clone https://github.com/comfyanonymous/ComfyUI.git
+         cd ComfyUI/
+         cd custom_nodes/
+         git clone https://github.com/ltdrdata/ComfyUI-Manager.git # With manager you can install custom nodes even on the server, unlike A1111
+         cd ..
+         python3 -m venv venv
+         source venv/bin/activate
+         pip install -r requirements.txt
+         pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
+         echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
+         echo "$SCRIPT_DIR/venv/bin/python $SCRIPT_DIR/main.py --listen 0.0.0.0 --port 7860" >> ./start.sh # You can specify the port you want
+         chmod +x start.sh
+         deactivate
+         ./start.sh
+         ```
    4. #### Kohya_SS
+      1. Install Nvidia CUDA Toolkit
+         - Go to this url [https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
+         - Copy the **Base Installer** contents and run them in your server console
+         - Example: (for CUDA Toolkit 12.5)
+            ```bash
+            wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
+            sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
+            wget https://developer.download.nvidia.com/compute/cuda/12.5.0/local_installers/cuda-repo-ubuntu2204-12-5-local_12.5.0-555.42.02-1_amd64.deb
+            sudo dpkg -i cuda-repo-ubuntu2204-12-5-local_12.5.0-555.42.02-1_amd64.deb
+            sudo cp /var/cuda-repo-ubuntu2204-12-5-local/cuda-*-keyring.gpg /usr/share/keyrings/
+            sudo apt-get update
+            sudo apt-get -y install cuda-toolkit-12-5
+            ```
+         - **If it fails to run later try running this also, sometimes it does this** `sudo apt install nvidia-cuda-toolkit`
+      2. Install Nvidia cuDNN
+         - Go to this url [https://developer.nvidia.com/cudnn-downloads](https://developer.nvidia.com/cudnn-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
+         - Copy the **Installation Instructions** and run them aswell
+         - Example:
+            ```bash
+            wget https://developer.download.nvidia.com/compute/cudnn/9.2.0/local_installers/cudnn-local-repo-ubuntu2204-9.2.0_1.0-1_amd64.deb
+            sudo dpkg -i cudnn-local-repo-ubuntu2204-9.2.0_1.0-1_amd64.deb
+            sudo cp /var/cudnn-local-repo-ubuntu2204-9.2.0/cudnn-*-keyring.gpg /usr/share/keyrings/
+            sudo apt-get update
+            sudo apt-get -y install cudnn
+            ```
+      3. Export CUDA to path permanently
+         - ```bash
+            echo 'export PATH=/usr/local/cuda/lib64:$PATH' >> ~/.bashrc
+            echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64' >> ~/.bashrc
+            echo 'export CUDA_PATH=/usr/local/cuda' >> ~/.bashrc
+            ```
+      4. ```bash
+         cd ~
+         git clone https://github.com/bmaltais/kohya_ss.git
+         ./setup,sh
+         echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
+         echo '$SCRIPT_DIR/gui.sh --listen 0.0.0.0 --server_port 7860 --headless' >> ./start.sh # The server port can be changed to what you need
+         chmod +x start.sh
+         ./start.sh
+         ```
+   5. #### Some ease of use stuff
