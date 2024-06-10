@@ -8,7 +8,7 @@
   - [Server Preparation](#server-preparation)
   - [UI Preparation](#ui-preparation)
     - [Commands used (For Non-Linux Users)](#some-commands-we-will-be-using)
-    - [A1111 & Forge](#a1111-%26-forge)
+    - [A1111 & Forge](#a1111--forge)
     - [ComfyUI](#comfyui)
     - [Kohya_SS](#kohya_ss)
 - General Information
