@@ -149,6 +149,7 @@
          ./start.sh
          ```
    4. #### Kohya_SS
+      - You can copy the commands fully here
       1. Install Nvidia CUDA Toolkit
          - Go to this url [https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
          - Copy the **Base Installer** contents and run them in your server console
@@ -183,15 +184,16 @@
             ```
       4. Install Kohya_SS
          - ```bash
-            cd ~
-            git clone https://github.com/bmaltais/kohya_ss.git
-            ./setup,sh
-            echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
-            echo '$SCRIPT_DIR/gui.sh --listen 0.0.0.0 --server_port 7860 --headless' >> ./start.sh # The server port can be changed to what you need
-            chmod +x start.sh
-            ./start.sh
-            ```
-   5. #### Ease of Use for UIs
+           cd ~
+           git clone https://github.com/bmaltais/kohya_ss.git
+           cd kohya_ss
+           ./setup.sh
+           echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
+           echo '$SCRIPT_DIR/gui.sh --listen 0.0.0.0 --server_port 7860 --headless' >> ./start.sh # The server port can be changed to what you need
+           chmod +x start.sh
+           ./start.sh
+           ```
+   6. #### Ease of Use for UIs
       - Create aliases for running the different UIs
          - As you have seen before, the `export` command does export to a path (environment variables on Windows)
          - We are now gonna use the `alias` command (This is the reason for the SCRIPT_DIR echo, without it this wouldn't work)
