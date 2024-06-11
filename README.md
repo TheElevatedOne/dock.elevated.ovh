@@ -162,7 +162,7 @@
             sudo apt-get update
             sudo apt-get -y install cuda-toolkit-12-5
             ```
-         - **If it fails to run later try running this also, sometimes it does this** `sudo apt install nvidia-cuda-toolkit`
+         - **If it fails to run later, sometimes it does this, try running this then** `sudo apt install nvidia-cuda-toolkit`
       2. Install Nvidia cuDNN
          - Go to this url [https://developer.nvidia.com/cudnn-downloads](https://developer.nvidia.com/cudnn-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
          - Copy the **Installation Instructions** and run them aswell
