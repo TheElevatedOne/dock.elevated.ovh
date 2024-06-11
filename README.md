@@ -115,13 +115,15 @@
          cd stable-diffusion-webui # or cd stable-diffusion-webui-forge
          # You can copy the echo command, it is just for convenience sake
          echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
-         echo "$SCRIPT_DIR/webui.sh --xformers --listen --port 7860" >> ./start.sh # You can specify the port you want
-         #If you are using forge and have 16GB+ VRAM you can add "--cuda-malloc --cuda-stream --pin-shared-memory" arguments, there may be a speedup
+         echo "$SCRIPT_DIR/webui.sh --xformers --listen --port 7860 --enable-insecure-extension-access" >> ./start.sh # You can specify the port you want
+         #If you are using forge and have 16GB+ VRAM you can add "--cuda-malloc --cuda-stream --pin-shared-memory --enable-insecure-extension-access" arguments, there may be a speedup
          chmod +x start.sh
          ./start.sh
          ```
-      2. Because of the `--listen` argument (which we need) you cannot install extensions inside the UI, </br>
-You must move to the extensions directory and clone the extensions yourself
+      2. If the `--enable-insecure-extension-access` argument causes errors for some reason, do `nano start.sh` (nano is commandline text editor), </br>
+      navigate with your arrow keys to the argument and just remove it. Save the file by `CTRL+S` and `CTRL+X`, in that order. </br>
+      Now you cannot install extension inside the UI as `--listen` blocks that and since `--enable-insecure-extension-access` gives errors, </br>
+      if you want to install an extension, you will need to go to the extension directory and clone the repository of the extension there.
          - example:
            ```bash
            cd extensions
@@ -134,7 +136,7 @@ You must move to the extensions directory and clone the extensions yourself
          git clone https://github.com/comfyanonymous/ComfyUI.git
          cd ComfyUI/
          cd custom_nodes/
-         git clone https://github.com/ltdrdata/ComfyUI-Manager.git # With manager you can install custom nodes even on the server, unlike A1111
+         git clone https://github.com/ltdrdata/ComfyUI-Manager.git # With manager you can install custom nodes even on the server
          cd ..
          python3 -m venv venv
          source venv/bin/activate
