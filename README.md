@@ -179,7 +179,7 @@
             echo 'export PATH=/usr/local/cuda/lib64:$PATH' >> ~/.bashrc
             echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64' >> ~/.bashrc
             echo 'export CUDA_PATH=/usr/local/cuda' >> ~/.bashrc
-            exex bash # Reloading the console without restarting the system
+            exec bash # Reloading the console without restarting the system
             ```
       4. Install Kohya_SS
          - ```bash
