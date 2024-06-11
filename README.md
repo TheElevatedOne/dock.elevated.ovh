@@ -161,9 +161,8 @@
             sudo dpkg -i cuda-repo-ubuntu2204-12-5-local_12.5.0-555.42.02-1_amd64.deb
             sudo cp /var/cuda-repo-ubuntu2204-12-5-local/cuda-*-keyring.gpg /usr/share/keyrings/
             sudo apt-get update
-            sudo apt-get -y install cuda-toolkit-12-5
+            sudo apt-get -y install cuda-toolkit-12-5 nvidia-cuda-toolkit # Install both CUDA 12 and CUDA 11, bitsandbytes needs CUDA 11 for some reason 
             ```
-         - **If it fails to run later, sometimes it does this, try running this then** `sudo apt install nvidia-cuda-toolkit`
       2. Install Nvidia cuDNN
          - Go to this url [https://developer.nvidia.com/cudnn-downloads](https://developer.nvidia.com/cudnn-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
          - Copy the **Installation Instructions** and run them aswell
