@@ -202,7 +202,7 @@
             echo 'alias kohya=/home/user/kohya_ss/start.sh' >> ~/.bashrc # Example for Kohya_SS
             exec bash # Reload console/bash config
             ```
-         - You can change the alias names to your liking (alias name are this `alias <name>=/)
+         - You can change the alias names to your liking (alias name are this `alias <name>=/`)
          - If you set what you want, now you can just run ex. `webui` as a command to start the UI
 ## We are DONE - Thank You for Reading
 - If you have any questions/suggestion, open an Issue
