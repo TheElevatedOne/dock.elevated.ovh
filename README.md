@@ -188,11 +188,21 @@
            git clone https://github.com/bmaltais/kohya_ss.git
            cd kohya_ss
            ./setup.sh
+           ./venv/bin/accelerate config
            echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
            echo '$SCRIPT_DIR/gui.sh --listen 0.0.0.0 --server_port 7860 --headless' >> ./start.sh # The server port can be changed to what you need
            chmod +x start.sh
            ./start.sh
            ```
+         - After installing Kohya_SS, accelerate prompt will show up. Don't be scared, just follow these steps:
+           - In which compute environment are you running? -> This Machine; Press Enter
+           - Which type of machine are you using? -> No distributed training; Press Enter</br> (Unless you got multiple GPUs when setting up the server, then you would go with Multi-GPU)
+           - Do you want to run your training on CPU only? -> Type `no`; Press Enter
+           - Do you wish to optimize your script with torch dynamo? -> Type `no`; Press Enter
+           - Do you want to use DeepSpeed? -> Type `no`; Press Enter
+           - What GPU(s) (by id) should be used for training on this machine as a comma-seperated list? -> Type `0`; Press Enter</br> (Again, exception for Multi-GPU users, type `all`)
+           - Do you wish to use FP16 or BF16 (mixed precision)? -> no; Press Enter
+           - Hooray, you live. /s
    6. #### Ease of Use for UIs
       - Create aliases for running the different UIs
          - As you have seen before, the `export` command does export to a path (environment variables on Windows)
