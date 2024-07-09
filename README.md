@@ -106,19 +106,19 @@
    2. #### A1111 & Forge
       1. ##### A1111
          ```bash
+         # This can be fully copied
          cd ~
          git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
          cd stable-diffusion-webui
-         # You can copy the echo command, it is just for convenience sake
          echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
          echo '$SCRIPT_DIR/venv/bin/python3 $SCRIPT_DIR/launch.py --xformers --listen --port 7860 --enable-insecure-extension-access' >> ./start.sh # You can specify the port you want
-         #If you are using forge and have 16GB+ VRAM you can add "--cuda-malloc --cuda-stream --pin-shared-memory --enable-insecure-extension-access" arguments, there may be a speedup
          chmod +x start.sh
          chmod +x webui.sh
          ./webui.sh # Just for installation purposes
          ```
          ##### Forge
          ```bash
+         # This can be fully copied
          cd ~
          git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git
          cd stable-diffusion-webui-forge
@@ -193,6 +193,7 @@
            ```
       4. Install Kohya_SS
          - ```bash
+           # This can be fully copied
            cd ~
            git clone https://github.com/bmaltais/kohya_ss.git
            cd kohya_ss
@@ -225,4 +226,59 @@
             ```
          - You can change the alias names to your liking (alias name are this `alias <name>=/`)
          - If you set what you want, now you can just run ex. `webui` as a command to start the UI
-4. My own script
+4. #### My own script
+  - (WIP)
+  - This is just a section for the script that I use when using a VM. So for faster installation I'm pasting it here.
+  - This script install A1111 and Kohya_SS, both on the 7860 port. Also it downloads the base Pony model and a bunch of </br>
+  other stuff that I used for testing models/generation, These other models are from CivitAI and they depend on `cookies.txt` from civit in the home directory </br>
+  as I cannot be bothered with their api stuff.
+  - ```bash
+    printf "Updating the system and Installing dependencies\n"
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install python3 python3-pip python3-venv python3-tk google-perftools zip unzip libgl1
+    printf "Installing bashtop\n"
+    git clone https://github.com/aristocratos/btop.git && cd btop && make && sudo make install && cd ~ && rm -r btop/
+    printf "Preparing A1111\n"
+    git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+    cd stable-diffusion-webui
+    echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
+    echo '$SCRIPT_DIR/venv/bin/python3 $SCRIPT_DIR/launch.py --xformers --listen --port 7860 --enable-insecure-extension-access' >> ./start.sh
+    chmod +x start.sh
+    chmod +x webui.sh
+    cd ~
+    printf "Install Nvidia Toolkit\n"
+    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
+    sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
+    wget https://developer.download.nvidia.com/compute/cuda/12.5.0/local_installers/cuda-repo-ubuntu2204-12-5-local_12.5.0-555.42.02-1_amd64.deb
+    sudo dpkg -i cuda-repo-ubuntu2204-12-5-local_12.5.0-555.42.02-1_amd64.deb
+    sudo cp /var/cuda-repo-ubuntu2204-12-5-local/cuda-*-keyring.gpg /usr/share/keyrings/
+    sudo apt-get update
+    sudo apt-get -y install cuda-toolkit-12-5 nvidia-cuda-toolkit
+    printf "Install cuDNN\n"
+    wget https://developer.download.nvidia.com/compute/cudnn/9.2.0/local_installers/cudnn-local-repo-ubuntu2204-9.2.0_1.0-1_amd64.deb
+    sudo dpkg -i cudnn-local-repo-ubuntu2204-9.2.0_1.0-1_amd64.deb
+    sudo cp /var/cudnn-local-repo-ubuntu2204-9.2.0/cudnn-*-keyring.gpg /usr/share/keyrings/
+    sudo apt-get update
+    sudo apt-get -y install cudnn
+    cd ~
+    rm cud*
+    echo 'export PATH=/usr/local/cuda/lib64:$PATH' >> ~/.bashrc
+    echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64' >> ~/.bashrc
+    echo 'export CUDA_PATH=/usr/local/cuda' >> ~/.bashrc
+    exec bash
+    printf "Preparing KohyaSS\n"
+    cd ~
+    git clone https://github.com/bmaltais/kohya_ss.git
+    cd kohya_ss
+    ./setup.sh
+    ./venv/bin/accelerate config
+    echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
+    echo '$SCRIPT_DIR/gui.sh --listen 0.0.0.0 --server_port 7860 --headless' >> ./start.sh
+    chmod +x start.sh
+    cd ~
+    printf "Downloading PonyV6 Base Model and VAE\n"
+    wget "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors?download=true" -O PonyDiffusion_vae.safetensors
+    wget "https://huggingface.co/AstraliteHeart/pony-diffusion-v6/resolve/main/v6.safetensors?download=true" -O PonyDiffusion.safetensors
+    cp PonyDiffusion* ~/kohya_ss/models/
+    printf "Downloading CivitAI Models"
+    ``` 
