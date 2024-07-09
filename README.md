@@ -229,8 +229,8 @@
 4. #### My own script
   - (WIP)
   - This is just a section for the script that I use when using a VM. So for faster installation I'm pasting it here.
-  - This script install A1111 and Kohya_SS, both on the 7860 port. Also it downloads the base Pony model and a bunch of </br>
-  other stuff that I used for testing models/generation, These other models are from CivitAI and they depend on `cookies.txt` from civit in the home directory </br>
+  - This script install A1111 and Kohya_SS, both on the 7860 port. Also it downloads the base Pony model and a bunch of 
+  other stuff that I used for testing models/generation, These other models are from CivitAI and they depend on `cookies.txt` from civit in the home directory 
   as I cannot be bothered with their api stuff.
   - ```bash
     printf "Updating the system and Installing dependencies\n"
