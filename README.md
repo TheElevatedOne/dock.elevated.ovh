@@ -66,11 +66,6 @@
    2. Once connected to the server you will run these commands (On linux you paste into a console by Ctrl+Shift+V, because Ctrl by itself is used in different ways ex. Ctrl+C stops the command you have run)
       1. `sudo apt update && sudo apt upgrade -y` | Check for packages that can be updated and update them without asking
       2. `sudo apt install -y python3 python3-pip python3-venv python3-tk git wget google-perftools zip unzip` | Install python and all the dependencies for webui's
-      3. Download the repositories of the WebUI's you will be using
-         1. A1111-WebUI - `git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git`
-         2. ComfyUI - `git clone https://github.com/comfyanonymous/ComfyUI.git`
-         3. SD-WebUI-Forge - `git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git`
-         4. Kohya_SS - `git clone https://github.com/bmaltais/kohya_ss.git`
    3. Let's open up the firewall
       1. `sudo ufw allow ssh` | ufw (Universal Firewall) allow running ssh port (port 22)
       2. `sudo ufw allow <port>` | run this for the ports you specified and the port 8888 (as a backup)
@@ -108,19 +103,33 @@
       5. `chmod +x <file>` - change file's mode/permissions, `+x` allow file to be executed
       6. You can stop a command you ran by pressing `CTRL+C`
    2. #### A1111 & Forge
-      1. ```bash
+      1. ##### A1111
+         ```bash
          cd ~
-         git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git # for A1111 WebUI
-         git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git # for Forge
-         cd stable-diffusion-webui # or cd stable-diffusion-webui-forge
+         git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+         cd stable-diffusion-webui
          # You can copy the echo command, it is just for convenience sake
          echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
-         echo "$SCRIPT_DIR/venv/bin/python3 $SCRIPT_DIR/launch.py --xformers --listen --port 7860 --enable-insecure-extension-access" >> ./start.sh # You can specify the port you want
+         echo '$SCRIPT_DIR/venv/bin/python3 $SCRIPT_DIR/launch.py --xformers --listen --port 7860 --enable-insecure-extension-access' >> ./start.sh # You can specify the port you want
          #If you are using forge and have 16GB+ VRAM you can add "--cuda-malloc --cuda-stream --pin-shared-memory --enable-insecure-extension-access" arguments, there may be a speedup
          chmod +x start.sh
          ./start.sh
+          chmod +x webui.sh
+         ./webui.sh
          ```
-      2. If the `--enable-insecure-extension-access` argument causes errors for some reason, do `nano start.sh` (nano is commandline text editor), </br>
+         ##### Forge
+         ```bash
+         cd ~
+         git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git
+         cd stable-diffusion-webui-forge
+         echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
+         echo '$SCRIPT_DIR/venv/bin/python3 $SCRIPT_DIR/launch.py --xformers --listen --port 7860 --enable-insecure-extension-access' >> ./start.sh # You can specify the port you want
+         #If you are using forge and have 16GB+ VRAM you can add "--cuda-malloc --cuda-stream --pin-shared-memory --enable-insecure-extension-access" arguments, there may be a speedup
+         chmod +x start.sh
+         chmod +x webui.sh
+         ./webui.sh
+         ```
+      3. If the `--enable-insecure-extension-access` argument causes errors for some reason, do `nano start.sh` (nano is commandline text editor), </br>
       navigate with your arrow keys to the argument and just remove it. Save the file by `CTRL+S` and `CTRL+X`, in that order. </br>
       Now you cannot install extension inside the UI as `--listen` blocks that and since `--enable-insecure-extension-access` gives errors, </br>
       if you want to install an extension, you will need to go to the extension directory and clone the repository of the extension there.
@@ -143,7 +152,7 @@
          pip install -r requirements.txt
          pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
          echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >> ./start.sh
-         echo "$SCRIPT_DIR/venv/bin/python $SCRIPT_DIR/main.py --listen 0.0.0.0 --port 7860" >> ./start.sh # You can specify the port you want
+         echo '$SCRIPT_DIR/venv/bin/python $SCRIPT_DIR/main.py --listen 0.0.0.0 --port 7860' >> ./start.sh # You can specify the port you want
          chmod +x start.sh
          deactivate
          ./start.sh
