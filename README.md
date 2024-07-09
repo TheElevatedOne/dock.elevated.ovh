@@ -113,9 +113,8 @@
          echo '$SCRIPT_DIR/venv/bin/python3 $SCRIPT_DIR/launch.py --xformers --listen --port 7860 --enable-insecure-extension-access' >> ./start.sh # You can specify the port you want
          #If you are using forge and have 16GB+ VRAM you can add "--cuda-malloc --cuda-stream --pin-shared-memory --enable-insecure-extension-access" arguments, there may be a speedup
          chmod +x start.sh
-         ./start.sh
-          chmod +x webui.sh
-         ./webui.sh
+         chmod +x webui.sh
+         ./webui.sh # Just for installation purposes
          ```
          ##### Forge
          ```bash
@@ -127,8 +126,9 @@
          #If you are using forge and have 16GB+ VRAM you can add "--cuda-malloc --cuda-stream --pin-shared-memory --enable-insecure-extension-access" arguments, there may be a speedup
          chmod +x start.sh
          chmod +x webui.sh
-         ./webui.sh
+         ./webui.sh # Just for installation purposes
          ```
+         After you run one of these scripts, kill the program with `Ctrl+C` and run it again with `./start.sh` so that it will start up with your commandline arguments.
       3. If the `--enable-insecure-extension-access` argument causes errors for some reason, do `nano start.sh` (nano is commandline text editor), </br>
       navigate with your arrow keys to the argument and just remove it. Save the file by `CTRL+S` and `CTRL+X`, in that order. </br>
       Now you cannot install extension inside the UI as `--listen` blocks that and since `--enable-insecure-extension-access` gives errors, </br>
