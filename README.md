@@ -225,7 +225,4 @@
             ```
          - You can change the alias names to your liking (alias name are this `alias <name>=/`)
          - If you set what you want, now you can just run ex. `webui` as a command to start the UI
-## We are DONE - Thank You for Reading
-- If you have any questions/suggestion, open an Issue
-4. My Own Script
-  1.
+4. My own script
