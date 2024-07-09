@@ -12,6 +12,7 @@
     - [ComfyUI](#comfyui)
     - [Kohya_SS](#kohya_ss)
     - [Ease of Use for UIs](#ease-of-use-for-uis)
+  - [My own script](#my-own-script)
 - General Information
   - Hosting
     - Finding a good hosting for AI can be quite an issue generally. You can have something like GCS (Google Cloud Services) with many features, but it will be expensive. Or you can go for something like runpod which is mostly specified for AI.
@@ -226,3 +227,5 @@
          - If you set what you want, now you can just run ex. `webui` as a command to start the UI
 ## We are DONE - Thank You for Reading
 - If you have any questions/suggestion, open an Issue
+4. My Own Script
+  1.
