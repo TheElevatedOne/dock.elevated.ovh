@@ -311,6 +311,6 @@
       git clone https://github.com/Bing-su/adetailer.git
       git clone https://github.com/adieyal/sd-dynamic-prompts.git
       cd ..
-      mv * ~/stable-diffusion-webui/
+      rsync -av * ~/stable-diffusion-webui/
       cd ~
       ``` 
