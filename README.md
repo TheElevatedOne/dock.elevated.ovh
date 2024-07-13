@@ -235,9 +235,9 @@
     - ```bash
       printf "Updating the system and Installing dependencies\n"
       sudo apt update && sudo apt upgrade -y
-      sudo apt install python3 python3-pip python3-venv python3-tk google-perftools zip unzip libgl1
+      sudo apt install python3 python3-pip python3-venv python3-tk google-perftools zip unzip libgl1 -y
       printf "Installing bashtop\n"
-      git clone https://github.com/aristocratos/btop.git && cd btop && make && sudo make install && cd ~ && rm -r btop/
+      git clone https://github.com/aristocratos/btop.git && cd btop && make && sudo make install && cd ~ && rm -rf btop/
       printf "Preparing A1111\n"
       git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
       cd stable-diffusion-webui
@@ -265,7 +265,6 @@
       echo 'export PATH=/usr/local/cuda/lib64:$PATH' >> ~/.bashrc
       echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64' >> ~/.bashrc
       echo 'export CUDA_PATH=/usr/local/cuda' >> ~/.bashrc
-      exec bash
       printf "Preparing KohyaSS\n"
       cd ~
       git clone https://github.com/bmaltais/kohya_ss.git
@@ -281,4 +280,37 @@
       wget "https://huggingface.co/AstraliteHeart/pony-diffusion-v6/resolve/main/v6.safetensors?download=true" -O PonyDiffusion.safetensors
       cp PonyDiffusion* ~/kohya_ss/models/
       printf "Downloading CivitAI Models"
+      mkdir dl
+      cd dl
+      mkdir models
+      mkdir embeddings
+      mkdir extensions
+      cd embeddings
+      wget --load-cookies=/home/user/cookies.txt "https://civitai.com/api/download/models/509253?type=Model&format=SafeTensor" -O PDXL.safetensors
+      wget --load-cookies=/home/user/cookies.txt "https://civitai.com/api/download/models/509253?type=Negative&format=Other" -O PDXL-neg.safetensors
+      cd ..
+      cd models
+      mkdir Lora
+      mkdir Stable-diffusion
+      mkdir VAE
+      cd VAE
+      mv ~/PonyDiffusion_vae.safetensors ./PonyDiffusion.safetensors
+      cd ..
+      cd Stable-diffusion
+      mv ~/PonyDiffusion.safetensors ./
+      wget --load-cookies=/home/user/cookies.txt "https://civitai.com/api/download/models/324619?type=Model&format=SafeTensor&size=pruned&fp=fp16" -O AutismMix.safetensors
+      wget --load-cookies=/home/user/cookies.txt "https://civitai.com/api/download/models/511677?type=Model&format=SafeTensor&size=pruned&fp=fp16" -O EverclearPNY.safetensors
+      wget --load-cookies=/home/user/cookies.txt "https://civitai.com/api/download/models/593760?type=Model&format=SafeTensor&size=full&fp=bf16" -O T-ponynai3.safetensors
+      cd ..
+      cd Lora
+      wget --load-cookies=/home/user/cookies.txt "https://civitai.com/api/download/models/486308?type=Model&format=SafeTensor" -O bad_anatomy.safetensors
+      wget --load-cookies=/home/user/cookies.txt "https://civitai.com/api/download/models/475811?type=Model&format=SafeTensor" -O boring_negative.safetensors
+      cd ..
+      cd ..
+      cd extensions
+      git clone https://github.com/Bing-su/adetailer.git
+      git clone https://github.com/adieyal/sd-dynamic-prompts.git
+      cd ..
+      mv * ~/stable-diffusion-webui/
+      cd ~
       ``` 
