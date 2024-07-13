@@ -227,11 +227,11 @@
          - You can change the alias names to your liking (alias name are this `alias <name>=/`)
          - If you set what you want, now you can just run ex. `webui` as a command to start the UI
 4. #### My own script
-  - (WIP)
-  - This is just a section for the script that I use when using a VM. So for faster installation I'm pasting it here.
-  - This script install A1111 and Kohya_SS, both on the 7860 port. Also it downloads the base Pony model and a bunch of 
-  other stuff that I used for testing models/generation, These other models are from CivitAI and they depend on `cookies.txt` from civit in the home directory 
-  as I cannot be bothered with their api stuff.
+    - (WIP)
+    - This is just a section for the script that I use when using a VM. So for faster installation I'm pasting it here.
+    - This script install A1111 and Kohya_SS, both on the 7860 port. Also it downloads the base Pony model and a bunch of 
+    other stuff that I used for testing models/generation, These other models are from CivitAI and they depend on `cookies.txt` from civit in the home directory 
+    as I cannot be bothered with their api stuff.
   - ```bash
     printf "Updating the system and Installing dependencies\n"
     sudo apt update && sudo apt upgrade -y
