@@ -5,20 +5,21 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="https://marketplace.tensordock.com/static/favicon.ico" type="image/x-icon">
     <title>Tutorial: Tensordock Server for AI Generation/Training</title>
+    <link rel="stylesheet" href="./default.css">
 </head>
 
-<body style="background-color: rgba(24, 26, 27, 255)">
-    <div style="width: 1250px; margin:0 auto;" id="mdcontainer">
+<body>
+    <div class="mdcontainer" id="mdcontainer">
 
     </div>
 </body>
 
 <script>
     window.onload = function () {
-        md = document.createElement("zero-md")
-        md.setAttribute("src", "./README.md")
-        md.setAttribute("no-shadow", "")
-        document.getElementById("mdcontainer").append(md)
+        md = document.createElement("zero-md");
+        md.setAttribute("src", "./README.md");
+        md.setAttribute("no-shadow", "");
+        document.getElementById("mdcontainer").append(md);
     }
 </script>
 
