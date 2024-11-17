@@ -1,5 +1,71 @@
+@font-face {
+    font-family: "OpenSans";
+    src: url("./fonts/OpenSans-VariableFont_wdthwght.ttf");
+}
+
+@font-face {
+    font-family: "LiberationMono";
+    src: url("./fonts/LiberationMono-Regular.ttf");
+}
+
+:root {
+    --color: rgb(235, 235, 235);
+    --bgcolor: rgb(24, 26, 27);
+}
+
+body {
+    overflow-x: hidden;
+    color: var(--color);
+    background-color: var(--bgcolor);
+    line-height: 1.7;
+    font-family: "OpenSans";
+}
+
 div.mdcontainer {
     padding: 3vh;
     max-width: 1250px; 
     margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+    background-color: rgba(235, 235, 235, 0.5);
+    padding: 0.3vw;
+}
+pre{
+    background-color: rgb(63, 58, 47);
+    width: min-content;
+    max-width: 100%;
+    width: 850px;
+    padding: 1.5vh;
+    max-height: max-content;
+    border-radius: 15px;
+    & > code {
+        max-width: 100%;
+        white-space: pre-wrap !important;
+    }
+}
+
+a:link {
+    color: rgb(10, 170, 230);
+}
+
+a:visited {
+    color: rgb(230, 170, 10);
+}
+
+li {
+    /* padding-top: 0.5vh;
+    padding-bottom: 0.5vh; */
+    & > code {
+        background-color: rgb(66, 46, 46);
+        color: white;
+        padding: 0.4%;
+        border-radius: 5px;
+    }
+}
+
+code {
+    font-family: "LiberationMono";
+    font-size: small;
 }

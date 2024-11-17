@@ -1,26 +1,22 @@
 <html lang="en-us">
 
 <head>
-    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
     <meta charset="utf-8">
+    <meta name="darkreader-lock">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dock.elevated.ovh">
+    <meta property="og:title" content="ELEVATED | Tensordock Server for AI Generation/Training">
+    <meta property="og:description" content="Tutorial for Tensordock AI Server">
+    <meta property="og:image" content="https://www.elevated.ovh/logo/poster.png">
     <link rel="shortcut icon" href="https://marketplace.tensordock.com/static/favicon.ico" type="image/x-icon">
-    <title>Tutorial: Tensordock Server for AI Generation/Training</title>
+    <title>ELEVATED | Tensordock Server for AI Generation/Training</title>
     <link rel="stylesheet" href="./default.css">
 </head>
 
 <body>
     <div class="mdcontainer" id="mdcontainer">
-
+        <md-block src="./README.md"></md-block>
     </div>
 </body>
-
-<script>
-    window.onload = function () {
-        md = document.createElement("zero-md");
-        md.setAttribute("src", "./README.md");
-        md.setAttribute("no-shadow", "");
-        document.getElementById("mdcontainer").append(md);
-    }
-</script>
-
 </html>
